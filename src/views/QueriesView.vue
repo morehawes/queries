@@ -1,9 +1,12 @@
 <script setup>
-import TheQueries from '../components/TheQueries.vue'
+import QueryList from '../components/QueryList.vue'
+import QueryForm from '../components/QueryForm.vue'
 </script>
 
 <template>
   <main>
-    <TheQueries />
+    <QueryList />
+
+    <QueryForm />
   </main>
 </template>

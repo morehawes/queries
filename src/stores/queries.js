@@ -5,16 +5,19 @@ export const useQueryStore = defineStore('queries', {
     return { 
     	queries: [
     		{
+    			'id': 1,
 					'name': 'Meat Shops',
 					'text': 'SELECT * FROM shops WHERE shop_type = "meat"',
 					'type': 'food'
 				},
     		{
+    			'id': 2,
 					'name': 'Pizza Shop',
 					'text': 'SELECT * FROM shops WHERE shop_type = "pizza"',
 					'type': 'food'
 				},
 				{
+    			'id': 3,				
 					'name': 'Hardware Shops',
 					'text': 'SELECT * FROM shops WHERE shop_type = "house"',
 					'type': 'hardware'
@@ -22,11 +25,14 @@ export const useQueryStore = defineStore('queries', {
     	]
     }
   },
-  // could also be defined as
-  // state: () => ({ count: 0 })
   actions: {
-//     increment() {
-//       this.count++
-//     },
+    delete(id) {
+			this.queries = this.queries.filter(function(query) {
+				return id !== query.id;
+			})
+    },
+    add(query) {
+    	this.queries.push(query);
+    }
   },
 })

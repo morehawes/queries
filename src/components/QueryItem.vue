@@ -1,4 +1,8 @@
 <script setup>
+import { useQueryStore } from '@/stores/queries';
+
+const storedQueries = useQueryStore();
+
 defineProps([
   'query'
 ]);
@@ -18,7 +22,7 @@ defineProps([
     <td class="edit">
       [e]
     </td>
-    <td class="delete">
+    <td class="delete" @click="storedQueries.delete(query.id)">
       [x]
     </td>    
   </tr>
