@@ -1,13 +1,14 @@
 <script setup>
+
 import { useQueryStore } from '@/stores/queries';
-import { ref } from 'vue';
+import {reactive} from 'vue';
 
-const storedQueries = useQueryStore();
+const queries = useQueryStore();
 
-const newQuery = {};
+const newQuery = reactive({});
 
 const handleAdd = function() {
-	storedQueries.add(newQuery);
+	queries.add(newQuery);
 }
 </script>
 
@@ -39,7 +40,7 @@ const handleAdd = function() {
 					</select>
 				</td>
 				<td colspan="2" class="add">
-					<input type="submit" valu="Add">
+					<input type="submit" value="Add">
 				</td>    
 			</tr>
 		</table>
