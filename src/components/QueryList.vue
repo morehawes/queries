@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+// import { ref } from 'vue';
 import QueryItem from './QueryItem.vue';
 import { useQueryStore } from '@/stores/queries';
 
@@ -26,11 +26,35 @@ queryStore.$subscribe((mutation, state) => {
 </script>
 
 <template>
-	<p>{{ queryStore.queries.length }}</p>
-	<table border="1">
+	<div id="count">{{ queryStore.queries.length }}</div>
+	
+	<table>
 	  <QueryItem
 	  	v-for="query in queryStore.queries"
 	  	:query="query"
 	  />
   </table>
 </template>
+
+<style lang="less">
+	#count {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		padding: 8px 10px;
+		background: blue;
+		color: white;
+	}
+	
+	table {
+		tr {
+			&:nth-child(odd) {
+				background: white;
+			}
+			td {
+				margin: 0;
+				padding: 5px;
+			}
+		}
+	}
+</style>

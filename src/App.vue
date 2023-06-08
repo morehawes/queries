@@ -3,13 +3,15 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-		Queries
-  </header>
-
   <RouterView />
 </template>
 
-<style scoped>
-
+<style>
+body, html {
+	padding: 0;
+	margin: 0;
+}
+#app {
+	position: relative;
+}
 </style>
