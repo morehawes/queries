@@ -1,5 +1,5 @@
 <script setup>
-// import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import QueryItem from './QueryItem.vue';
 import { useQueryStore } from '@/stores/queries';
 
@@ -23,17 +23,18 @@ queryStore.$subscribe((mutation, state) => {
   localStorage.setItem('queries', JSON.stringify(state))
 })
 
+const { queries } = storeToRefs(queryStore);
 </script>
 
 <template>
-	<div id="count">{{ queryStore.queries.length }}</div>
+	<div id="count">{{ queries.length }}</div>
 	
-	<table>
+	<div id="queries">
 	  <QueryItem
-	  	v-for="query in queryStore.queries"
+	  	v-for="query in queries"
 	  	:query="query"
 	  />
-  </table>
+  </div>
 </template>
 
 <style lang="less">

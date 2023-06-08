@@ -3,12 +3,14 @@
 import { useQueryStore } from '@/stores/queries';
 import {reactive} from 'vue';
 
-const queries = useQueryStore();
+const queryStore = useQueryStore();
 
-const newQuery = reactive({});
+const newQuery = reactive({
+	id: parseInt(queryStore.queries.length) + 1
+});
 
 const handleAdd = function() {
-	queries.add(newQuery);
+	queryStore.add(newQuery);
 }
 </script>
 

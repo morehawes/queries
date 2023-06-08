@@ -1,33 +1,52 @@
 <script setup>
 import { useQueryStore } from '@/stores/queries';
 
-const storedQueries = useQueryStore();
-
 defineProps([
   'query'
 ]);
+
+const queryStore = useQueryStore();
+
+let remove = (query) => {
+	queryStore.remove(query);
+}
 </script>
 
 <template>
-  <tr class="query">
-    <td class="name">
-      {{ query.name }}
-    </td>
-    <td class="text">
-      {{ query.text }}
-    </td>
-    <td class="type">
-      {{ query.type }}
-    </td>
-    <td class="edit">
-      [e]
-    </td>
-    <td class="delete" @click="storedQueries.delete(query.id)">
-      [x]
-    </td>    
-  </tr>
+  <div class="query">
+  	<div class="name">
+  		<label for="name">Title</label>
+  		
+  		<input v-model="query.name" type="text" />
+  	</div>
+
+  	<div class="text">
+  		<label for="text">Query</label>
+  		
+  		<input v-model="query.text" type="text" />
+  	</div>
+
+  	<div class="type">
+  		<label for="type">Type</label>
+  		
+  		<input v-model="query.type" type="text" />
+  	</div>
+
+    <button class="delete" @click="remove(query)">Delete</button>    
+  </div>
 </template>
 
-<style scoped>
-
+<style lang="less">
+.query {
+	margin-bottom: 10px;
+	padding: 15px;
+	border: 1px solid #333;
+	label {
+		display: block;
+		font-weight: bold;
+	}
+	.name {
+	
+	}
+}
 </style>
