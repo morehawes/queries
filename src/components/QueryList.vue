@@ -38,7 +38,7 @@ const { queries } = storeToRefs(queryStore);
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 	#count {
 		position: absolute;
 		top: 5px;
@@ -47,16 +47,5 @@ const { queries } = storeToRefs(queryStore);
 		background: blue;
 		color: white;
 	}
-	
-	table {
-		tr {
-			&:nth-child(odd) {
-				background: white;
-			}
-			td {
-				margin: 0;
-				padding: 5px;
-			}
-		}
-	}
+
 </style>

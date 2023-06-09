@@ -45,7 +45,7 @@ export const useQueryStore = defineStore('queries', {
 				'id': '3',
 				'name': 'Hardware Shops',
 				'text': 'SELECT * FROM shops WHERE shop_type = "house"',
-				'type': 'hardware'
+				'type': 'retail'
 			}];
 		},
     
