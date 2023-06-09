@@ -57,7 +57,11 @@ export const useQueryStore = defineStore('queries', {
 
     add(query) {
 			if(query.name) {
-				this.queries.push(query);
+				query.id = parseInt(this.queries.length) + 1;
+			
+				//Make non-reactive
+// 				this.queries.push(query);
+ 				this.queries.push(Object.assign({}, query));
 			}
     },    
   },

@@ -6,12 +6,12 @@ import QueryTypeSelector from './QueryTypeSelector.vue';
 
 const queryStore = useQueryStore();
 
-const newQuery = reactive({
-	id: parseInt(queryStore.queries.length) + 1
-});
+let newQuery = {};
 
 const handleAdd = function() {
 	queryStore.add(newQuery);
+	
+	newQuery = {}
 }
 </script>
 
