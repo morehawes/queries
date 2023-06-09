@@ -10,7 +10,7 @@ let queryStore = useQueryStore();
 	<div class="cols">
 		<div class="col col-left">
 			<textarea>
-				{{ JSON.stringify(queryStore.queries) }}			
+				{{ JSON.stringify(queryStore.queries).trim() }}			
 			</textarea>
 			</div>
 		<div class="col col-right">

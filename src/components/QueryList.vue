@@ -32,6 +32,7 @@ const { queries } = storeToRefs(queryStore);
 	<div id="queries">
 	  <QueryItem
 	  	v-for="query in queries"
+	  	:key="query.id"
 	  	:query="query"
 	  />
   </div>

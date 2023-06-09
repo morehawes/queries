@@ -1,4 +1,5 @@
 <script setup>
+import QueryTypeSelector from '@/components/QueryTypeSelector.vue';
 import { useQueryStore } from '@/stores/queries';
 
 defineProps([
@@ -29,7 +30,7 @@ let remove = (query) => {
   	<div class="type">
   		<label for="type">Type</label>
   		
-  		<input v-model="query.type" type="text" />
+  		<QueryTypeSelector v-model="query.type" />
   	</div>
 
     <button class="delete" @click="remove(query)">Delete</button>    

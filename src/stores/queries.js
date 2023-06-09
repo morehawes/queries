@@ -10,7 +10,7 @@ export const useQueryStore = defineStore('queries', {
 	  fill(){
 			let userQueries = JSON.parse(localStorage.getItem('queries'));
 		  
-		  if(userQueries) {
+		  if(userQueries.length) {
 			  this.queries = userQueries.queries;
 
 			  return true;
