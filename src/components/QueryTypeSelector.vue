@@ -9,9 +9,10 @@ defineProps({
 </script>
 
 <template>
-	<input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" type="text" />
+	<select
+		:value="modelValue"
+		@input="$emit('update:modelValue', $event.target.value)"		
+	>
+		<option v-for="(value, key) in queryStore.getTypes" :value="key">{{ value }}</option>												
+	</select>
 </template>
-
-<style lang="less">
-
-</style>

@@ -2,9 +2,9 @@
 import QueryTypeSelector from '@/components/QueryTypeSelector.vue';
 import { useQueryStore } from '@/stores/queries';
 
-defineProps([
-  'query'
-]);
+defineProps({
+  'query': Object
+});
 
 const queryStore = useQueryStore();
 

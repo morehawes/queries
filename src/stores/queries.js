@@ -1,21 +1,34 @@
 import { defineStore } from 'pinia'
 
 export const useQueryStore = defineStore('queries', {
+	//State
   state: () => {
     return { 
     	queries: []
     }
   },
+
+	//Getters
+	getters: {
+		getTypes() {
+			return {
+				'food': 'Food',
+				'retail': 'Retail',				
+			}
+		}
+	},
+  
+  //Actions
   actions: {
-	  fill(){
+	  fill() {
 			let userQueries = JSON.parse(localStorage.getItem('queries'));
-		  
-		  if(userQueries.length) {
+
+		  if(userQueries !== null) {
 			  this.queries = userQueries.queries;
 
 			  return true;
 		  }
-			
+
 			this.queries = [{
 				'id': '1',
 				'name': 'Meat Shops',

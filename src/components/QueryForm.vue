@@ -1,7 +1,8 @@
 <script setup>
 
 import { useQueryStore } from '@/stores/queries';
-import {reactive} from 'vue';
+import { reactive } from 'vue';
+import QueryTypeSelector from './QueryTypeSelector.vue';
 
 const queryStore = useQueryStore();
 
@@ -32,14 +33,7 @@ const handleAdd = function() {
 					/>
 				</td>
 				<td class="type">
-					<select 
-						type="text"
-						v-model="newQuery.type"
-					>
-						<option value="Type1">Type 1</option>
-						<option value="Type2">Type 2</option>
-						<option value="Type3">Type 3</option>												
-					</select>
+		  		<QueryTypeSelector v-model="newQuery.type" />
 				</td>
 				<td colspan="2" class="add">
 					<input type="submit" value="Add">
