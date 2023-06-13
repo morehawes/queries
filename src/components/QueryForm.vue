@@ -1,12 +1,11 @@
 <script setup>
-
+import QueryData from '@/components/QueryData.vue';
 import { useQueryStore } from '@/stores/queries';
-import { reactive } from 'vue';
-import QueryTypeSelector from './QueryTypeSelector.vue';
+import { ref } from 'vue';
 
 const queryStore = useQueryStore();
 
-let newQuery = {};
+let newQuery = ref({});
 
 const handleAdd = function() {
 	queryStore.add(newQuery);
@@ -16,49 +15,28 @@ const handleAdd = function() {
 </script>
 
 <template>
-	<form @submit.prevent="handleAdd">
-		<table border="1">
-			<tr class="query">
-				<td class="name">
-					<input 
-						type="text"
-						placeholder="Name"
-						v-model="newQuery.name"
-					/>
-				</td>
-				<td class="text">
-					<textarea 
-						placeholder="Query"
-						v-model="newQuery.text"
-					/>
-				</td>
-				<td class="type">
-		  		<QueryTypeSelector v-model="newQuery.type" />
-				</td>
-				<td colspan="2" class="add">
-					<input type="submit" value="Add">
-				</td>    
-			</tr>
-		</table>
-	</form>
+ 	<div class="title">Add New</div>
 
+	<form @submit.prevent="handleAdd">
+		<QueryData :query="newQuery" />
+		
+		<input type="submit" value="Add">
+	</form>
 </template>
 
-<style>
-	table td.name {
-		width: 140px
+<style lang="less" scoped>
+.title {
+	padding: 10px;
+	background: #999;
+	color: #333;
+}
+
+form {
+	position: relative;
+	input[type="submit"] {
+		position: absolute;
+		bottom: 15px;
+		right: 10px;
 	}
-	table td.text {
-		width: 140px
-	}
-	table td.type {
-		width: 140px
-	}
-	table td.edit,
-	table td.delete {
-		width: 50px
-	}
-	table td.add {
-		width: 106px;
-	}	
+}
 </style>

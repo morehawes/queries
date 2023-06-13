@@ -1,5 +1,6 @@
 <script setup>
-import QueryTypeSelector from '@/components/QueryTypeSelector.vue';
+import QueryData from '@/components/QueryData.vue';
+
 import { useQueryStore } from '@/stores/queries';
 import { ref } from 'vue';
 
@@ -18,38 +19,23 @@ let remove = (query) => {
 
 <template>
   <div class="query">
-  	<div class="query-title" @click="active = ! active">
+  	<div class="title" @click="active = ! active">
   		<span v-if="! active">[+]</span>
   		<span v-else>[&ndash;]</span>  		
   		{{ query.name }}
 		</div>  	
   	<div v-show="active" class="query-data">
-			<div class="name">
-				<label for="name">Title</label>
-			
-				<input v-model="query.name" type="text" />
-			</div>
-
-			<div class="text">
-				<label for="text">Query</label>
-			
-				<textarea v-model="query.text" />
-			</div>
-
-			<div class="type">
-				<label for="type">Type</label>
-			
-				<QueryTypeSelector v-model="query.type" />
-			</div>
+			<QueryData :query="query" />
 
 			<button class="delete" @click="remove(query)">Delete</button>    
 		</div>
 	</div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 .query {
-	.query-title {
+	position: relative;
+	.title {
 		padding: 10px;
 		background: #333;
 		color: #fff;
@@ -58,22 +44,10 @@ let remove = (query) => {
 			float: right;
 		}
 	}
-	.query-data {
-		position: relative;
-		padding: 15px;
-		border: 1px solid #333;
-		> div {
-			margin-bottom: 10px;		
-		}
-		label {
-			display: block;
-			font-weight: bold;
-		}
-		button.delete {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-		}	
+	button.delete {
+		position: absolute;
+		bottom: 15px;
+		right: 10px;
 	}
 }
 </style>
