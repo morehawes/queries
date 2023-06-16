@@ -5,7 +5,7 @@ import { ref } from 'vue';
 
 const queryStore = useQueryStore();
 
-let newQuery = ref({});
+let newQuery = {};
 
 const handleAdd = function() {
 	queryStore.add(newQuery);
