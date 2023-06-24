@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useQueryStore = defineStore('queries', {
 	//State
   state: () => {
-    return { 
+    return {
     	queries: []
     }
   },
@@ -13,11 +13,11 @@ export const useQueryStore = defineStore('queries', {
 		getTypes() {
 			return {
 				'food': 'Food',
-				'retail': 'Retail',				
+				'retail': 'Retail',
 			}
 		}
 	},
-  
+
   //Actions
   actions: {
 	  fill() {
@@ -29,26 +29,14 @@ export const useQueryStore = defineStore('queries', {
 			  return true;
 		  }
 
-			this.queries = [{
-				'id': '1',
-				'name': 'Meat Shops',
-				'text': 'SELECT * FROM shops WHERE shop_type = "meat"',
-				'type': 'food'
-			},
-			{
-				'id': '2',
-				'name': 'Pizza Shop',
-				'text': 'SELECT * FROM shops WHERE shop_type = "pizza"',
-				'type': 'food'
-			},
-			{
-				'id': '3',
-				'name': 'Hardware Shops',
-				'text': 'SELECT * FROM shops WHERE shop_type = "house"',
-				'type': 'retail'
-			}];
+			this.queries = fetch('http://127.0.0.1:8000/queries')
+			    .then(response => response.json())
+			    .then(queries => {
+			        this.queries = queries;
+			    })
+			;
 		},
-    
+
     remove(query) {
 			this.queries = this.queries.filter(function(q) {
 				return query.id !== q.id;
@@ -58,11 +46,11 @@ export const useQueryStore = defineStore('queries', {
     add(query) {
 			if(query.name) {
 				query.id = parseInt(this.queries.length) + 1;
-			
+
 				//Make non-reactive
 // 				this.queries.push(query);
  				this.queries.push(Object.assign({}, query));
 			}
-    },    
+    },
   },
 });
