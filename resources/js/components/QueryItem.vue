@@ -21,13 +21,13 @@ let remove = (query) => {
   <div class="query">
   	<div class="title" @click="active = ! active">
   		<span v-if="! active">[+]</span>
-  		<span v-else>[&ndash;]</span>  		
-  		{{ query.name }}
-		</div>  	
+  		<span v-else>[&ndash;]</span>
+  		{{ query.title }}
+		</div>
   	<div v-show="active" class="query-data">
 			<QueryData :query="query" />
 
-			<button class="delete" @click="remove(query)">Delete</button>    
+			<button class="delete" @click="remove(query)">Delete</button>
 		</div>
 	</div>
 </template>

@@ -8,22 +8,34 @@ const props = defineProps({
 
 <template>
 	<div class="query-data">
-		<div class="name">
-			<label for="name">Title</label>
-	
-			<input v-model="query.name" type="text" />
-		</div>
+		<div class="title">
+			<label for="title">Title</label>
 
-		<div class="text">
-			<label for="text">Query</label>
-	
-			<textarea v-model="query.text" />
+			<input v-model="query.title" type="text" />
 		</div>
 
 		<div class="type">
 			<label for="type">Type</label>
-	
+
 			<QueryTypeSelector v-model="query.type" />
+		</div>
+
+		<div class="query">
+			<label for="query">Query</label>
+
+			<textarea v-model="query.query" />
+		</div>
+
+		<div class="icon">
+			<label for="icon">Icon</label>
+
+			<input v-model="query.icon" type="text" />
+		</div>
+
+		<div class="colour">
+			<label for="colour">Colour</label>
+
+			<input v-model="query.colour" type="text" />
 		</div>
 	</div>
 </template>
@@ -43,6 +55,6 @@ const props = defineProps({
 	}
 	textarea {
 		height: 60px;
-	}	
+	}
 }
 </style>
