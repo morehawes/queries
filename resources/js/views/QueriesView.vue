@@ -1,12 +1,16 @@
 <script setup>
 import { useQueryStore } from '@/stores/queries';
 import QueryList from '../components/QueryList.vue'
-import QueryForm from '../components/QueryForm.vue'
+import ShopList from '../components/ShopList.vue'
 
 let queryStore = useQueryStore();
 </script>
 
 <template>
+    <header>
+        <ShopList />
+    </header>
+
 	<div class="cols">
 		<div class="col col-left">
 			<textarea>
@@ -16,7 +20,9 @@ let queryStore = useQueryStore();
 		<div class="col col-right">
 			<QueryList />
 
+<!--
 			<QueryForm />
+ -->
 		</div>
 	</div>
 </template>
