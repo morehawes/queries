@@ -1,7 +1,7 @@
 <script setup>
 import { useQueryStore } from '@/stores/queries';
-import QueryList from '../components/QueryList.vue'
 import ShopList from '../components/ShopList.vue'
+import Map from '../components/Map.vue'
 
 let queryStore = useQueryStore();
 </script>
@@ -13,15 +13,15 @@ let queryStore = useQueryStore();
 
 	<div class="cols">
 		<div class="col col-left">
+            <Map />
+			</div>
+		<div class="col col-right">
 			<textarea>
 				{{ JSON.stringify(queryStore.queries).trim() }}
 			</textarea>
-			</div>
-		<div class="col col-right">
-			<QueryList />
 
 <!--
-			<QueryForm />
+			<QueryList />
  -->
 		</div>
 	</div>

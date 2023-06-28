@@ -13,6 +13,7 @@
         "vite": "^4.3.5"
     },
     "dependencies": {
+        "ol": "^7.4.0",
         "pinia": "^2.1.4",
         "randomcolor": "^0.6.2",
         "vue": "^3.3.4",
