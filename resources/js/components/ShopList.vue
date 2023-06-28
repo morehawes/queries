@@ -1,10 +1,19 @@
 <script setup>
+import { randomColor } from 'randomcolor';
 import { onMounted } from 'vue';
 import shopValues from '../../json/shopValues.json';
 
 defineProps({
 	'modelValue': String
 });
+
+let randomColors = randomColor({
+    'count': shopValues.length
+});
+
+for(let i in shopValues) {
+    shopValues[i].colour = randomColors[i];
+}
 
 onMounted(() => {
     console.log(shopValues);
@@ -13,9 +22,10 @@ onMounted(() => {
 
 <template>
 	<div
-	    v-for="shop in shopValues"
+	    v-for="(shop, key, index) in shopValues"
 	    class="shop"
         :title="shop.description"
+        :style="`border-color: ${shop.colour};`"
 	>
 	    <div
 	        class="symbol"
