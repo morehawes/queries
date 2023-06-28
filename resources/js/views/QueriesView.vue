@@ -28,6 +28,10 @@ let queryStore = useQueryStore();
 </template>
 
 <style lang="less">
+    header {
+        display: flex;
+    }
+
 	.cols {
 		display: flex;
 		.col {
