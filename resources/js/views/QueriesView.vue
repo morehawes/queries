@@ -1,9 +1,9 @@
 <script setup>
-import { useQueryStore } from '@/stores/queries';
+import { useShopStore } from '@/stores/shops';
 import ShopList from '../components/ShopList.vue'
 import Map from '../components/Map.vue'
 
-let queryStore = useQueryStore();
+let shopStore = useShopStore();
 </script>
 
 <template>
@@ -17,7 +17,7 @@ let queryStore = useQueryStore();
 			</div>
 		<div class="col col-right">
 			<textarea>
-				{{ JSON.stringify(queryStore.queries).trim() }}
+				{{ JSON.stringify(shopStore.shops).trim() }}
 			</textarea>
 		</div>
 	</div>

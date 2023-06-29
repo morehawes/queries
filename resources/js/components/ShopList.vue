@@ -2,6 +2,7 @@
 import { randomColor } from 'randomcolor';
 import { onMounted } from 'vue';
 import shopValues from '../../json/shopValues.json';
+import { useShopStore } from '@/stores/shops.js';
 
 defineProps({
 	'modelValue': String

@@ -15,9 +15,11 @@ use App\Models\Query;
 */
 
 Route::get('/', function () {
+    $bounding_box = '';
+
     return view('queries');
 });
 
-Route::get('/queries/', function () {
+Route::get('/shops/', function () {
     return Query::all();
 });
