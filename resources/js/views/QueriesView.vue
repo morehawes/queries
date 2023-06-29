@@ -19,10 +19,6 @@ let queryStore = useQueryStore();
 			<textarea>
 				{{ JSON.stringify(queryStore.queries).trim() }}
 			</textarea>
-
-<!--
-			<QueryList />
- -->
 		</div>
 	</div>
 </template>
@@ -30,6 +26,8 @@ let queryStore = useQueryStore();
 <style lang="less">
     header {
         display: flex;
+        width: 100%;
+        overflow: scroll;
     }
 
 	.cols {
