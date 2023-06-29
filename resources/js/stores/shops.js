@@ -13,20 +13,20 @@ export const useShopStore = defineStore('shops', {
 
   //Actions
   actions: {
-	  fill() {
-			let userShops = JSON.parse(localStorage.getItem('shops'));
+	  async fill() {
+// 			let userShops = JSON.parse(localStorage.getItem('shops'));
+//
+// 		  if(userShops !== null) {
+// 			  this.shops = userShops.shops;
+//
+// 			  return true;
+// 		  }
 
-		  if(userShops !== null) {
-			  this.shops = userShops.shops;
-
-			  return true;
-		  }
-
-			this.queries = fetch('http://127.0.0.1:8000/shops')
-			    .then(response => response.json())
-			    .then(shops => {
-			        this.shops = shops;
-			    })
+			fetch('http://127.0.0.1:8000/shops')
+        .then(response => response.json())
+        .then(shops => {
+          this.shops = shops;
+        })
 			;
 		},
 

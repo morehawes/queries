@@ -1,7 +1,7 @@
 <script setup>
 import { randomColor } from 'randomcolor';
 import { onMounted } from 'vue';
-import shopValues from '../../json/shopValues.json';
+import shopDefinitions from '../../json/shopDefinitions.json';
 import { useShopStore } from '@/stores/shops.js';
 
 defineProps({
@@ -9,21 +9,31 @@ defineProps({
 });
 
 let randomColors = randomColor({
-    'count': shopValues.length
+    'count': shopDefinitions.length
 });
 
-for(let i in shopValues) {
-    shopValues[i].colour = randomColors[i];
+const shopStore = useShopStore();
+shopStore.fill();
+
+console.log(shopStore.shops);
+
+
+// let shop_geojson = JSON.parse(shopStore.shops[0].response);
+
+for(let i in shopDefinitions) {
+  shopDefinitions[i].colour = randomColors[i];
+
+//   shopDefinitions[i].colour;
 }
 
 onMounted(() => {
-    console.log(shopValues);
+//     console.log(shopDefinitions);
 })
 </script>
 
 <template>
 	<div
-	    v-for="(shop, key, index) in shopValues"
+	    v-for="(shop, key, index) in shopDefinitions"
 	    class="shop"
         :title="shop.description"
         :style="`border-color: ${shop.colour};`"

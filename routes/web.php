@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Query;
+use App\Models\Shop;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +21,5 @@ Route::get('/', function () {
 });
 
 Route::get('/shops/', function () {
-    return Query::all();
+    return Shop::all();
 });
