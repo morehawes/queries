@@ -6,6 +6,8 @@ import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import XYZ from 'ol/source/XYZ';
+import 'ol/ol.css';
+import { fromLonLat } from 'ol/proj.js';
 
 onMounted(() => {
     new Map({
@@ -18,8 +20,8 @@ onMounted(() => {
         })
       ],
       view: new View({
-        center: [0, 0],
-        zoom: 2
+        center: fromLonLat([-124.995403, 49.692064]),
+        zoom: 14
       })
     });
 });
